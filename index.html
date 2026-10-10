@@ -3,212 +3,325 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f7f3">
-  <title>Hello, pricing! | Mia</title>
+  <meta name="theme-color" content="#1F3A5F">
+  <title>FixIt Phone d.o.o. | Repairs and refurbished phones</title>
   <style>
     :root {
       color-scheme: light;
-      --ink: #18251f;
-      --muted: #64736a;
-      --line: #dce4dc;
-      --paper: #ffffff;
-      --canvas: #f5f7f3;
-      --accent: #176b4b;
-      --accent-soft: #e9f3ec;
+      --navy: #1F3A5F;
+      --ink: #172536;
+      --muted: #526174;
+      --line: #dce3eb;
+      --pale: #f4f7fa;
+      --white: #fff;
     }
 
     * { box-sizing: border-box; }
 
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      background: var(--canvas);
+      background: var(--white);
       color: var(--ink);
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.5;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
     }
 
-    main {
-      width: min(100% - 32px, 760px);
-      margin: 0 auto;
-      padding: 64px 0 48px;
+    a { color: var(--navy); }
+
+    .wrap {
+      width: min(100% - 40px, 1100px);
+      margin-inline: auto;
     }
 
-    .eyebrow {
-      margin: 0 0 10px;
-      color: var(--accent);
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+    header {
+      border-bottom: 1px solid var(--line);
+      background: var(--white);
     }
+
+    .header-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding-block: 12px;
+    }
+
+    .brand {
+      color: var(--navy);
+      font-size: 1.15rem;
+      font-weight: 750;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 4px;
+    }
+
+    nav a {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 10px;
+      border-radius: 6px;
+      color: var(--ink);
+      font-size: 0.95rem;
+      text-decoration: none;
+    }
+
+    nav a:hover, nav a:focus-visible { background: var(--pale); color: var(--navy); }
+
+    .hero {
+      padding: clamp(64px, 10vw, 112px) 0;
+      background: var(--pale);
+    }
+
+    .hero-inner { max-width: 780px; }
+
+    h1, h2, h3 { color: var(--navy); line-height: 1.2; }
 
     h1 {
+      max-width: 760px;
       margin: 0;
-      font-size: clamp(2rem, 8vw, 3.25rem);
-      line-height: 1.08;
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      letter-spacing: -0.035em;
     }
 
-    .intro {
-      margin: 12px 0 30px;
+    .hero p {
+      max-width: 670px;
+      margin: 20px 0 28px;
       color: var(--muted);
-      font-size: 1rem;
+      font-size: clamp(1.05rem, 2vw, 1.2rem);
     }
 
-    .table-wrap {
-      overflow: hidden;
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 20px;
+      border: 2px solid var(--navy);
+      border-radius: 6px;
+      background: var(--navy);
+      color: var(--white);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .button:hover, .button:focus-visible { background: #152b47; border-color: #152b47; }
+
+    section.content-section { padding: 72px 0; }
+
+    section.content-section + section.content-section { border-top: 1px solid var(--line); }
+
+    h2 {
+      margin: 0 0 28px;
+      font-size: clamp(1.8rem, 4vw, 2.35rem);
+      letter-spacing: -0.025em;
+    }
+
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .benefit {
+      padding: 24px;
       border: 1px solid var(--line);
       border-radius: 8px;
-      background: var(--paper);
+      background: var(--white);
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: left;
-    }
+    .benefit h3 { margin: 0 0 10px; font-size: 1.2rem; }
+    .benefit p { margin: 0; color: var(--muted); }
 
-    caption {
-      padding: 18px 20px;
-      border-bottom: 1px solid var(--line);
-      font-size: 1.05rem;
-      font-weight: 700;
-    }
+    #how { background: var(--pale); }
 
-    th, td {
-      padding: 17px 20px;
-      vertical-align: top;
-    }
-
-    thead th {
-      background: #f8faf7;
-      color: var(--muted);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    tbody tr + tr { border-top: 1px solid var(--line); }
-    tbody tr:nth-child(2) { background: #fbfcfa; }
-
-    .plan-name {
-      display: block;
-      font-size: 1rem;
-      font-weight: 700;
-    }
-
-    .plan-note {
-      display: block;
-      margin-top: 3px;
-      color: var(--muted);
-      font-size: 0.8rem;
-    }
-
-    .price {
-      white-space: nowrap;
-      font-size: 1.05rem;
-      font-weight: 700;
-    }
-
-    .price small {
-      color: var(--muted);
-      font-size: 0.78rem;
-      font-weight: 400;
-    }
-
-    ul {
+    .steps {
       display: grid;
-      gap: 5px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px;
       margin: 0;
-      padding-left: 18px;
-      color: #34443a;
-      font-size: 0.88rem;
+      padding: 0;
+      list-style: none;
+      counter-reset: step;
     }
+
+    .steps li {
+      position: relative;
+      padding-top: 52px;
+      color: var(--muted);
+      counter-increment: step;
+    }
+
+    .steps li::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--white);
+      content: counter(step);
+      font-weight: 700;
+    }
+
+    .steps strong { display: block; margin-bottom: 6px; color: var(--navy); }
+
+    #pricing { min-height: 190px; }
+    #pricing h2 { margin-bottom: 0; }
+
+    .faq-list { max-width: 820px; }
+
+    .faq-list details { padding: 18px 0; border-bottom: 1px solid var(--line); }
+    .faq-list details:first-child { border-top: 1px solid var(--line); }
+
+    .faq-list summary {
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      color: var(--navy);
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .faq-list p { margin: 8px 0 0; color: var(--muted); }
+
+    #contact { background: var(--pale); }
+    #contact h2 { margin-bottom: 12px; }
+    #contact p { margin: 0; }
+    #contact a { min-height: 44px; display: inline-flex; align-items: center; font-weight: 650; }
 
     footer {
-      margin-top: 20px;
+      padding: 22px 0;
       color: var(--muted);
-      font-size: 0.85rem;
+      font-size: 0.875rem;
     }
 
-    footer strong { color: var(--ink); }
+    @media (max-width: 720px) {
+      .header-inner { align-items: flex-start; flex-direction: column; gap: 6px; }
+      nav { justify-content: flex-start; margin-inline: -8px; }
+      .benefit-grid, .steps { grid-template-columns: 1fr; gap: 14px; }
+      section.content-section { padding: 56px 0; }
+    }
 
-    @media (max-width: 520px) {
-      main { padding-top: 42px; }
-      caption { padding: 15px 14px; }
-      th, td { padding: 14px 10px; }
-      thead th { font-size: 0.67rem; }
-      .plan-name { font-size: 0.92rem; }
-      .plan-note { font-size: 0.74rem; }
-      .price { font-size: 0.96rem; }
-      ul { gap: 4px; padding-left: 15px; font-size: 0.79rem; }
+    @media (max-width: 400px) {
+      .wrap { width: min(100% - 32px, 1100px); }
+      nav { gap: 0; }
+      nav a { padding-inline: 8px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
     }
   </style>
 </head>
 <body>
-  <main>
-    <p class="eyebrow">A little app for big ideas</p>
-    <h1>Hello, pricing!</h1>
-    <p class="intro">Simple plans for making room for what matters.</p>
-
-    <div class="table-wrap">
-      <table>
-        <caption>Plans for Brightside</caption>
-        <thead>
-          <tr>
-            <th scope="col">Plan</th>
-            <th scope="col">Monthly</th>
-            <th scope="col">Features</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">
-              <span class="plan-name">Free</span>
-              <span class="plan-note">For getting started</span>
-            </th>
-            <td class="price">€0 <small>/ month</small></td>
-            <td>
-              <ul>
-                <li>3 active projects</li>
-                <li>Basic task lists</li>
-                <li>Personal workspace</li>
-              </ul>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <span class="plan-name">Basic</span>
-              <span class="plan-note">For everyday flow</span>
-            </th>
-            <td class="price">€8 <small>/ month</small></td>
-            <td>
-              <ul>
-                <li>Unlimited projects</li>
-                <li>Calendar and reminders</li>
-                <li>File attachments</li>
-              </ul>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <span class="plan-name">Pro</span>
-              <span class="plan-note">For the whole team</span>
-            </th>
-            <td class="price">€18 <small>/ month</small></td>
-            <td>
-              <ul>
-                <li>Everything in Basic</li>
-                <li>Shared team workspaces</li>
-                <li>Progress reports</li>
-              </ul>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+  <header id="header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top">FixIt Phone d.o.o.</a>
+      <nav aria-label="Main navigation">
+        <a href="#benefits">Benefits</a>
+        <a href="#how">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
+  </header>
 
-    <footer>Made with care by <strong>Mia</strong>.</footer>
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-inner">
+        <h1 id="hero-title">Keep your phone going, or choose a refurbished flagship.</h1>
+        <p>FixIt Phone offers smartphone repairs with original-quality parts and refurbished flagship phones with a two-year warranty in Osijek and Vukovar.</p>
+        <a class="button" href="#pricing">Explore your options</a>
+      </div>
+    </section>
+
+    <section class="content-section" id="benefits" aria-labelledby="benefits-title">
+      <div class="wrap">
+        <h2 id="benefits-title">Benefits</h2>
+        <div class="benefit-grid">
+          <article class="benefit">
+            <h3>Quality repairs</h3>
+            <p>Smartphone repairs using original-quality parts.</p>
+          </article>
+          <article class="benefit">
+            <h3>Refurbished flagships</h3>
+            <p>Choose a refurbished flagship phone with a two-year warranty.</p>
+          </article>
+          <article class="benefit">
+            <h3>Local service</h3>
+            <p>Visit one of three local shops in Osijek and Vukovar.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="how" aria-labelledby="how-title">
+      <div class="wrap">
+        <h2 id="how-title">How it works</h2>
+        <ol class="steps">
+          <li><strong>Choose what you need</strong>Decide whether you need a smartphone repair or a refurbished phone.</li>
+          <li><strong>Find your option</strong>Choose the relevant FixIt Phone service or refurbished-phone option.</li>
+          <li><strong>Get a phone that works for you</strong>Have your smartphone repaired with original-quality parts, or choose a refurbished flagship with a two-year warranty.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="content-section" id="pricing" aria-labelledby="pricing-title">
+      <div class="wrap">
+        <h2 id="pricing-title">Pricing</h2>
+        <!-- PRICING -->
+      </div>
+    </section>
+
+    <section class="content-section" id="faq" aria-labelledby="faq-title">
+      <div class="wrap">
+        <h2 id="faq-title">Frequently asked questions</h2>
+        <div class="faq-list">
+          <details>
+            <summary>What repair parts are used?</summary>
+            <p>Repairs use original-quality parts.</p>
+          </details>
+          <details>
+            <summary>Do refurbished phones include a warranty?</summary>
+            <p>Yes. Refurbished flagship phones come with a two-year warranty.</p>
+          </details>
+          <details>
+            <summary>Where can I find FixIt Phone?</summary>
+            <p>FixIt Phone has three local shops in Osijek and Vukovar.</p>
+          </details>
+          <details>
+            <summary>Can I choose between repair and a refurbished phone?</summary>
+            <p>Yes. You can choose a smartphone repair or a refurbished-phone option.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <h2 id="contact-title">Contact</h2>
+        <p>Email us at <a href="mailto:newphone@fixitphone.hr">newphone@fixitphone.hr</a></p>
+      </div>
+    </section>
   </main>
+
+  <footer>
+    <div class="wrap">© 2026 FixIt Phone d.o.o. – student project, fictitious company</div>
+  </footer>
 </body>
 </html>
