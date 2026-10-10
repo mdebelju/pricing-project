@@ -284,7 +284,72 @@
     <section class="content-section" id="pricing" aria-labelledby="pricing-title">
       <div class="wrap">
         <h2 id="pricing-title">Pricing</h2>
-        <!-- PRICING -->
+        <style>
+          #pricing h2 { margin-bottom: 12px; }
+          #pricing .pricing-intro { margin: 0 0 24px; color: var(--muted); }
+          #pricing .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            align-items: stretch;
+            gap: 20px;
+          }
+          #pricing .pricing-card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 24px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--white);
+          }
+          #pricing .pricing-card.recommended {
+            border: 2px solid var(--navy);
+            padding: 23px;
+          }
+          #pricing .recommended-label {
+            margin: -8px 0 8px;
+            color: var(--navy);
+            font-size: 0.8rem;
+            font-weight: 750;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+          }
+          #pricing .pricing-card h3 { margin: 0 0 10px; font-size: 1.2rem; }
+          #pricing .price { margin: 0 0 14px; color: var(--navy); font-size: 1.65rem; font-weight: 750; line-height: 1.3; }
+          #pricing .price span { font-size: 0.95rem; font-weight: 500; }
+          #pricing .pricing-card p { margin: 0 0 12px; color: var(--muted); }
+          #pricing .pricing-card .button { margin-top: auto; }
+          #pricing .pricing-footnote { margin: 18px 0 0; color: var(--muted); font-size: 0.8rem; }
+          @media (max-width: 720px) {
+            #pricing .pricing-cards { grid-template-columns: 1fr; gap: 14px; }
+          }
+        </style>
+        <p class="pricing-intro">Quality repairs and refurbished flagship phones, with clear pricing and warranty coverage for greater peace of mind.</p>
+        <div class="pricing-cards">
+          <article class="pricing-card recommended">
+            <p class="recommended-label">Recommended</p>
+            <h3>Premium Screen Repair</h3>
+            <p class="price">€249 <span>per repair</span></p>
+            <p>For premium phones worth €900–€1,300.</p>
+            <p>Original-quality screen repair with warranty coverage, without a 10-day mail-in wait.</p>
+            <a class="button" href="#contact">Choose Premium Screen Repair</a>
+          </article>
+          <article class="pricing-card">
+            <h3>Mid-Range Screen Repair</h3>
+            <p class="price">€97.50 <span>per repair</span></p>
+            <p>For phones worth €200–€400.</p>
+            <p>Original-quality screen repair with warranty coverage instead of cheaper copy-screen repairs.</p>
+            <a class="button" href="#contact">Choose Mid-Range Screen Repair</a>
+          </article>
+          <article class="pricing-card">
+            <h3>Refurbished Flagship Phone</h3>
+            <p class="price">€499 <span>per phone</span></p>
+            <p>For customers seeking a refurbished flagship.</p>
+            <p>Refurbished flagship phone for €499—€300 less than its original €799 new price—with a 2-year warranty.</p>
+            <a class="button" href="#contact">Choose Refurbished Flagship Phone</a>
+          </article>
+        </div>
+        <p class="pricing-footnote">Repair prices are per repair; refurbished phones are subject to availability. All prices are final consumer prices.</p>
       </div>
     </section>
 
