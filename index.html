@@ -198,6 +198,15 @@
     #pricing { min-height: 190px; }
     #pricing h2 { margin-bottom: 0; }
 
+    .repair-gif-section { padding: 32px 0 56px; }
+    .repair-gif {
+      display: block;
+      width: min(100%, 800px);
+      height: auto;
+      margin-inline: auto;
+      border-radius: 8px;
+    }
+
     .faq-list { max-width: 820px; }
 
     .faq-list details { padding: 18px 0; border-bottom: 1px solid var(--line); }
@@ -232,6 +241,7 @@
       .hero-image { aspect-ratio: 3 / 2; }
       .benefit-grid, .steps { grid-template-columns: 1fr; gap: 14px; }
       section.content-section { padding: 56px 0; }
+      .repair-gif-section { padding: 24px 0 40px; }
     }
 
     @media (max-width: 400px) {
@@ -397,6 +407,12 @@
           </article>
         </div>
         <p class="pricing-footnote">Repair prices are per repair; refurbished phones are subject to availability. All prices are final consumer prices.</p>
+      </div>
+    </section>
+
+    <section class="repair-gif-section" aria-label="Phone repair animation">
+      <div class="wrap">
+        <img class="repair-gif" src="images/phone-repair.gif" alt="Phone repair in progress">
       </div>
     </section>
 
