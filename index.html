@@ -83,7 +83,23 @@
       background: var(--pale);
     }
 
-    .hero-inner { max-width: 780px; }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      align-items: center;
+      gap: clamp(32px, 5vw, 64px);
+    }
+
+    .hero-copy { min-width: 0; }
+    .hero-image {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+      border-radius: 8px;
+    }
 
     h1, h2, h3 { color: var(--navy); line-height: 1.2; }
 
@@ -212,6 +228,8 @@
     @media (max-width: 720px) {
       .header-inner { align-items: flex-start; flex-direction: column; gap: 6px; }
       nav { justify-content: flex-start; margin-inline: -8px; }
+      .hero-inner { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+      .hero-image { aspect-ratio: 3 / 2; }
       .benefit-grid, .steps { grid-template-columns: 1fr; gap: 14px; }
       section.content-section { padding: 56px 0; }
     }
@@ -244,9 +262,12 @@
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
       <div class="wrap hero-inner">
-        <h1 id="hero-title">Keep your phone going, or choose a refurbished flagship.</h1>
-        <p>FixIt Phone offers smartphone repairs with original-quality parts and refurbished flagship phones with a two-year warranty in Osijek and Vukovar.</p>
-        <a class="button" href="#pricing">Explore your options</a>
+        <div class="hero-copy">
+          <h1 id="hero-title">Keep your phone going, or choose a refurbished flagship.</h1>
+          <p>FixIt Phone offers quality-focused smartphone repairs using original-quality parts and refurbished flagship phones backed by a two-year warranty, serving customers in Osijek and Vukovar.</p>
+          <a class="button" href="#pricing">Explore your options</a>
+        </div>
+        <img class="hero-image" src="Images/phone-repair-hero.jpeg" alt="Technician repairing a smartphone">
       </div>
     </section>
 
